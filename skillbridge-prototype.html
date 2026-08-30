@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillBridge AI — Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16232E;
+    --paper: #F5F6F3;
+    --panel: #FFFFFF;
+    --teal: #2F6F62;
+    --teal-light: #E4EFEC;
+    --coral: #E2643C;
+    --coral-light: #FBEAE3;
+    --amber: #C7861A;
+    --amber-light: #FBF0DC;
+    --line: #DCDFD9;
+    --muted: #6B776E;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+  }
+  .display { font-family: 'Fraunces', serif; }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+
+  .shell { display: flex; min-height: 100vh; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: var(--ink);
+    color: #EDEFEC;
+    padding: 1.75rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .brand {
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0 0 1.75rem;
+    letter-spacing: -0.01em;
+  }
+  .bridge-track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    position: relative;
+  }
+  .bridge-track::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    height: 1px;
+    background: rgba(237,239,236,0.25);
+    z-index: 0;
+  }
+  .node-btn {
+    background: none;
+    border: none;
+    color: rgba(237,239,236,0.55);
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1;
+    padding: 0;
+  }
+  .node-dot {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: #1F2E3A;
+    border: 1px solid rgba(237,239,236,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    transition: all 0.15s ease;
+  }
+  .node-btn.active .node-dot { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .node-btn.active { color: #EDEFEC; font-weight: 500; }
+
+  .module-list { display: flex; flex-direction: column; gap: 2px; margin-top: 0.5rem; }
+  .module-item {
+    background: none; border: none; color: rgba(237,239,236,0.7);
+    text-align: left; font-family: 'Inter', sans-serif; font-size: 13.5px;
+    padding: 9px 10px; border-radius: 8px; cursor: pointer;
+  }
+  .module-item:hover { background: rgba(237,239,236,0.06); }
+  .module-item.active { background: rgba(255,255,255,0.1); color: #fff; font-weight: 500; }
+
+  .sidebar-footer { margin-top: auto; font-size: 11.5px; color: rgba(237,239,236,0.45); line-height: 1.5; }
+
+  /* Main */
+  .main { flex: 1; padding: 2.25rem 2.75rem; max-width: 980px; }
+  .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 6px; }
+  h1.page-title { font-size: 28px; font-weight: 600; margin: 0 0 1.75rem; letter-spacing: -0.01em; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.4rem;
+  }
+  .card h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.9rem; font-weight: 500; }
+
+  /* Confidence ring */
+  .ring-wrap { display: flex; align-items: center; gap: 1.1rem; }
+  .ring-num { font-size: 34px; font-weight: 600; }
+  .ring-sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+
+  /* Gap bars */
+  .gap-row { margin-bottom: 12px; }
+  .gap-row:last-child { margin-bottom: 0; }
+  .gap-label { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+  .gap-label span:last-child { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; }
+  .gap-track { height: 7px; background: var(--teal-light); border-radius: 4px; overflow: hidden; }
+  .gap-fill { height: 100%; border-radius: 4px; }
+
+  .steps { display: flex; flex-direction: column; gap: 10px; }
+  .step { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; }
+  .step-num {
+    width: 22px; height: 22px; border-radius: 50%; background: var(--teal-light); color: var(--teal);
+    font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+
+  select, button.primary {
+    font-family: 'Inter', sans-serif; font-size: 13.5px; padding: 9px 14px;
+    border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+  }
+  button.primary { background: var(--teal); color: #fff; border: none; cursor: pointer; font-weight: 500; }
+  button.primary:hover { background: #275c51; }
+  .sim-row { display: flex; gap: 10px; margin-bottom: 1.1rem; }
+  .sim-row select { flex: 1; }
+
+  .stat-pair { display: flex; gap: 1rem; }
+  .stat-box { flex: 1; background: var(--teal-light); border-radius: var(--radius); padding: 1rem; text-align: center; }
+  .stat-box .num { font-size: 24px; font-weight: 600; }
+  .stat-box .lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .feed-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
+  .feed-item:last-child { border-bottom: none; }
+  .feed-tag { font-size: 10.5px; padding: 2px 7px; border-radius: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; flex-shrink: 0; height: fit-content; }
+  .tag-industry { background: var(--amber-light); color: var(--amber); }
+  .tag-college { background: var(--teal-light); color: var(--teal); }
+
+  .chat-box { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); padding: 1rem; }
+  .chat-msg { font-size: 13.5px; margin-bottom: 10px; line-height: 1.5; }
+  .chat-msg.bot { color: var(--ink); }
+  .chat-msg.user { color: var(--muted); text-align: right; }
+  .chat-input-row { display: flex; gap: 8px; margin-top: 8px; }
+  .chat-input-row input { flex: 1; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--line); font-family: 'Inter', sans-serif; font-size: 13.5px; }
+
+  .view { display: none; }
+  .view.active { display: block; }
+  .module-panel { display: none; }
+  .module-panel.active { display: block; }
+
+  /* Roadmap */
+  .roadmap { position: relative; padding-left: 28px; }
+  .roadmap::before { content: ""; position: absolute; left: 10px; top: 6px; bottom: 6px; width: 1px; background: var(--line); }
+  .roadmap-item { position: relative; padding-bottom: 1.5rem; }
+  .roadmap-item:last-child { padding-bottom: 0; }
+  .roadmap-dot { position: absolute; left: -28px; top: 2px; width: 21px; height: 21px; border-radius: 50%; background: var(--panel); border: 2px solid var(--teal); }
+  .roadmap-item.done .roadmap-dot { background: var(--teal); }
+  .roadmap-title { font-size: 14px; font-weight: 600; margin: 0 0 3px; }
+  .roadmap-sub { font-size: 12.5px; color: var(--muted); margin: 0; }
+  .pill { display: inline-block; font-size: 10.5px; padding: 2px 8px; border-radius: 20px; font-weight: 600; margin-left: 8px; }
+  .pill-done { background: var(--teal-light); color: var(--teal); }
+  .pill-progress { background: var(--amber-light); color: var(--amber); }
+
+  /* Assessment list */
+  .assess-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .assess-row:last-child { border-bottom: none; }
+  .assess-name { font-size: 13.5px; font-weight: 500; }
+  .assess-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .assess-score { font-size: 16px; font-weight: 600; }
+
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 2px solid var(--amber); outline-offset: 2px;
+  }
+
+  @media (max-width: 760px) {
+    .shell { flex-direction: column; }
+    .sidebar { width: 100%; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .main { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <aside class="sidebar">
+    <p class="brand display">SkillBridge<span style="color:var(--amber)">.</span></p>
+
+    <div class="bridge-track">
+      <button class="node-btn active" id="node-student" onclick="setStakeholder('student')">
+        <span class="node-dot">S</span> Student
+      </button>
+      <button class="node-btn" id="node-college" onclick="setStakeholder('college')">
+        <span class="node-dot">C</span> College
+      </button>
+      <button class="node-btn" id="node-industry" onclick="setStakeholder('industry')">
+        <span class="node-dot">I</span> Industry
+      </button>
+    </div>
+
+    <div class="module-list" id="module-list"></div>
+
+    <p class="sidebar-footer">SIH26134 — Aligning Skill<br>Development with Industry Needs</p>
+  </aside>
+
+  <main class="main">
+
+    <!-- STUDENT -->
+    <div class="view" id="view-student">
+
+      <div class="module-panel active" id="panel-student-know">
+        <p class="eyebrow">Student · Priya Sharma</p>
+        <h1 class="page-title display">Know your skills</h1>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Skill confidence score</h3>
+            <div class="ring-wrap">
+              <svg width="72" height="72" viewBox="0 0 72 72">
+                <circle cx="36" cy="36" r="30" fill="none" stroke="#E4EFEC" stroke-width="7"/>
+                <circle cx="36" cy="36" r="30" fill="none" stroke="#2F6F62" stroke-width="7"
+                  stroke-dasharray="188.5" stroke-dashoffset="41.5" stroke-linecap="round" transform="rotate(-90 36 36)"/>
+              </svg>
+              <div>
+                <p class="ring-num mono">78<span style="font-size:16px;color:var(--muted)">/100</span></p>
+                <p class="ring-sub">Verified via 4 projects, 2 assessments</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Target role</h3>
+            <p style="font-size:18px;font-weight:600;margin:0 0 4px;">Backend Developer</p>
+            <p style="font-size:13px;color:var(--muted);margin:0;">2 of 5 required skills fully verified</p>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Skill gap vs. target role</h3>
+          <div id="gap-rows"></div>
+        </div>
+      </div>
+
+      <div class="module-panel" id="panel-student-learn">
+        <p class="eyebrow">Student · Priya Sharma</p>
+        <h1 class="page-title display">Learn what to learn</h1>
+        <div class="card">
+          <h3>Shortest path to Backend Developer</h3>
+          <div class="roadmap">
+            <div class="roadmap-item done">
+              <span class="roadmap-dot"></span>
+              <p class="roadmap-title">Core REST API project<span class="pill pill-done">Done</span></p>
+              <p class="roadmap-sub">Verified — raised REST API confidence from 60 to 82</p>
+            </div>
+            <div class="roadmap-item done">
+              <span class="roadmap-dot"></span>
+              <p class="roadmap-title">Database migrations mini-project<span class="pill pill-progress">In progress</span></p>
+              <p class="roadmap-sub">Build a schema-versioned migration tool — closes your largest gap</p>
+            </div>
+            <div class="roadmap-item">
+              <span class="roadmap-dot"></span>
+              <p class="roadmap-title">Practical system-design assessment</p>
+              <p class="roadmap-sub">Unlocks once the migrations project is verified</p>
+            </div>
+            <div class="roadmap-item">
+              <span class="roadmap-dot"></span>
+              <p class="roadmap-title">Containerize your project with Docker</p>
+              <p class="roadmap-sub">Final step to reach full role readiness</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-panel" id="panel-student-assess">
+        <p class="eyebrow">Student · Priya Sharma</p>
+        <h1 class="page-title display">Test &amp; assessment</h1>
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h3>Completed assessments</h3>
+          <div class="assess-row">
+            <div><p class="assess-name">REST API practical build</p><p class="assess-meta">Auto-evaluated · submitted 3 days ago</p></div>
+            <p class="assess-score mono" style="color:var(--teal)">92<span style="font-size:12px;color:var(--muted)">/100</span></p>
+          </div>
+          <div class="assess-row">
+            <div><p class="assess-name">Database fundamentals quiz</p><p class="assess-meta">Auto-graded · submitted 1 week ago</p></div>
+            <p class="assess-score mono" style="color:var(--amber)">71<span style="font-size:12px;color:var(--muted)">/100</span></p>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Recommended next assessment</h3>
+          <p style="font-size:13.5px;margin:0 0 12px;">Practical system-design assessment — evaluates trade-off reasoning through a real scenario, not multiple choice.</p>
+          <button class="primary">Start assessment</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COLLEGE -->
+    <div class="view" id="view-college">
+
+      <div class="module-panel active" id="panel-college-curriculum">
+        <p class="eyebrow">College · B.Tech CSE, Semester 5</p>
+        <h1 class="page-title display">Curriculum what-if simulator</h1>
+
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h3>Test a curriculum change</h3>
+          <div class="sim-row">
+            <select id="course-action">
+              <option value="add-cloud">Add: Cloud Fundamentals</option>
+              <option value="remove-legacy">Remove: Legacy Systems Programming</option>
+              <option value="add-genai">Add: Applied GenAI</option>
+            </select>
+            <button class="primary" onclick="simulate()">Run simulation</button>
+          </div>
+          <div class="stat-pair">
+            <div class="stat-box"><p class="num mono" id="sim-score" style="color:var(--teal)">+6.2%</p><p class="lbl">Projected employability score</p></div>
+            <div class="stat-box"><p class="num mono" id="sim-students">240</p><p class="lbl">Students affected</p></div>
+          </div>
+          <p style="font-size:12px;color:var(--muted);margin:12px 0 0;">Estimate based on current industry demand signals and student skill baselines for this program.</p>
+        </div>
+
+        <div class="card">
+          <h3>Curriculum gaps flagged by industry demand</h3>
+          <div class="gap-row">
+            <div class="gap-label"><span>Cloud &amp; DevOps — not currently taught</span><span>High demand</span></div>
+            <div class="gap-track"><div class="gap-fill" style="width:88%;background:var(--coral)"></div></div>
+          </div>
+          <div class="gap-row">
+            <div class="gap-label"><span>Applied GenAI — not currently taught</span><span>High demand</span></div>
+            <div class="gap-track"><div class="gap-fill" style="width:81%;background:var(--coral)"></div></div>
+          </div>
+          <div class="gap-row">
+            <div class="gap-label"><span>Data Structures — well covered</span><span>Stable demand</span></div>
+            <div class="gap-track"><div class="gap-fill" style="width:74%;background:var(--teal)"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-panel" id="panel-college-demand">
+        <p class="eyebrow">College · Curriculum planning</p>
+        <h1 class="page-title display">Industry demand, for planning</h1>
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h3>Predicted skill demand — next 1–3 years</h3>
+          <div id="demand-rows-college"></div>
+        </div>
+        <div class="card">
+          <h3>Emerging roles to prepare for</h3>
+          <div class="assess-row">
+            <div><p class="assess-name">Platform Reliability Engineer</p><p class="assess-meta">New role category, first postings appeared 4 months ago</p></div>
+          </div>
+          <div class="assess-row">
+            <div><p class="assess-name">AI Integration Developer</p><p class="assess-meta">Postings up 3x over the last two quarters</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- INDUSTRY -->
+    <div class="view" id="view-industry">
+
+      <div class="module-panel active" id="panel-industry-talent">
+        <p class="eyebrow">Industry · Talent &amp; demand overview</p>
+        <h1 class="page-title display">Available talent, real time</h1>
+        <div class="grid-2">
+          <div class="card"><p class="num mono" style="font-size:26px;font-weight:600;margin:0;">1,240</p><p style="font-size:12.5px;color:var(--muted);margin:4px 0 0;">Verified talent in pipeline</p></div>
+          <div class="card"><p class="num mono" style="font-size:26px;font-weight:600;margin:0;color:var(--teal);">-18%</p><p style="font-size:12.5px;color:var(--muted);margin:4px 0 0;">Hiring mismatch reduction</p></div>
+        </div>
+        <div class="card">
+          <h3>Predicted skill demand — next 1–3 years</h3>
+          <div id="demand-rows"></div>
+        </div>
+      </div>
+
+      <div class="module-panel" id="panel-industry-connect">
+        <p class="eyebrow">Industry · Feedback loop</p>
+        <h1 class="page-title display">Connections</h1>
+        <div class="card">
+          <h3>Recent activity</h3>
+          <div class="feed-item"><span class="feed-tag tag-industry">Industry</span>Flagged "Cloud Fundamentals" as a top-3 unmet need for backend roles</div>
+          <div class="feed-item"><span class="feed-tag tag-college">College</span>Simulated adding Cloud Fundamentals to Semester 5 curriculum</div>
+          <div class="feed-item"><span class="feed-tag tag-industry">Industry</span>Confirmed 12 hires from verified talent pipeline this month</div>
+        </div>
+      </div>
+
+      <div class="module-panel" id="panel-industry-assist">
+        <p class="eyebrow">Industry · Career &amp; talent guidance</p>
+        <h1 class="page-title display">Smart assistance</h1>
+        <div class="card">
+          <h3>Ask the assistant</h3>
+          <div class="chat-box">
+            <div class="chat-msg bot">Ask me about talent availability, skill trends, or curriculum recommendations.</div>
+            <div id="chat-thread"></div>
+            <div class="chat-input-row">
+              <input type="text" id="chat-input" placeholder="e.g. Which region has the most cloud-ready graduates?">
+              <button class="primary" onclick="sendChat()">Ask</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<script>
+  const modules = {
+    student: [
+      { id: "know", label: "1. Know your skills" },
+      { id: "learn", label: "2. Learn what to learn" },
+      { id: "assess", label: "5. Test & assessment" },
+    ],
+    college: [
+      { id: "curriculum", label: "4. College / curriculum" },
+      { id: "demand", label: "3. Industry demand" },
+    ],
+    industry: [
+      { id: "talent", label: "7. Dashboard & analytics" },
+      { id: "connect", label: "6. Connections" },
+      { id: "assist", label: "8. Smart assistance" },
+    ],
+  };
+
+  function setStakeholder(view) {
+    ['student', 'college', 'industry'].forEach(v => {
+      document.getElementById('view-' + v).classList.toggle('active', v === view);
+      document.getElementById('node-' + v).classList.toggle('active', v === view);
+    });
+    renderModuleList(view);
+    showModulePanel(view, modules[view][0].id);
+  }
+
+  function renderModuleList(view) {
+    const list = document.getElementById('module-list');
+    list.innerHTML = '';
+    modules[view].forEach((m, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'module-item' + (i === 0 ? ' active' : '');
+      btn.textContent = m.label;
+      btn.onclick = () => {
+        document.querySelectorAll('.module-item').forEach(el => el.classList.remove('active'));
+        btn.classList.add('active');
+        showModulePanel(view, m.id);
+      };
+      list.appendChild(btn);
+    });
+  }
+
+  function showModulePanel(view, moduleId) {
+    document.querySelectorAll('#view-' + view + ' .module-panel').forEach(el => {
+      el.classList.toggle('active', el.id === 'panel-' + view + '-' + moduleId);
+    });
+  }
+
+  const skills = [
+    { name: "REST API design", have: 82, need: 90 },
+    { name: "Database migrations", have: 55, need: 85 },
+    { name: "System design", have: 40, need: 80 },
+    { name: "Containerization", have: 60, need: 75 },
+  ];
+  const gapRows = document.getElementById('gap-rows');
+  skills.forEach(s => {
+    const gap = s.need - s.have;
+    const color = gap > 20 ? 'var(--coral)' : gap > 5 ? 'var(--amber)' : 'var(--teal)';
+    const row = document.createElement('div');
+    row.className = 'gap-row';
+    row.innerHTML = '<div class="gap-label"><span>' + s.name + '</span><span>' + s.have + ' / ' + s.need + '</span></div>' +
+      '<div class="gap-track"><div class="gap-fill" style="width:' + s.have + '%;background:' + color + '"></div></div>';
+    gapRows.appendChild(row);
+  });
+
+  const demand = [
+    { name: "Cloud & DevOps", pct: 88 },
+    { name: "Applied GenAI", pct: 81 },
+    { name: "Data Engineering", pct: 74 },
+    { name: "Cybersecurity basics", pct: 68 },
+  ];
+  function renderDemand(elementId) {
+    const container = document.getElementById(elementId);
+    if (!container) return;
+    demand.forEach(d => {
+      const row = document.createElement('div');
+      row.className = 'gap-row';
+      row.innerHTML = '<div class="gap-label"><span>' + d.name + '</span><span>' + d.pct + '% growth</span></div>' +
+        '<div class="gap-track"><div class="gap-fill" style="width:' + d.pct + '%;background:var(--amber)"></div></div>';
+      container.appendChild(row);
+    });
+  }
+  renderDemand('demand-rows');
+  renderDemand('demand-rows-college');
+
+  function simulate() {
+    const action = document.getElementById('course-action').value;
+    const results = {
+      'add-cloud': { score: '+6.2%', students: '240' },
+      'remove-legacy': { score: '+2.1%', students: '240' },
+      'add-genai': { score: '+8.7%', students: '240' },
+    };
+    const r = results[action];
+    document.getElementById('sim-score').textContent = r.score;
+    document.getElementById('sim-students').textContent = r.students;
+  }
+
+  function sendChat() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text) return;
+    const thread = document.getElementById('chat-thread');
+    const userMsg = document.createElement('div');
+    userMsg.className = 'chat-msg user';
+    userMsg.textContent = text;
+    thread.appendChild(userMsg);
+
+    const botMsg = document.createElement('div');
+    botMsg.className = 'chat-msg bot';
+    botMsg.textContent = 'Based on current data: Bengaluru and Pune show the highest concentration of cloud-verified graduates this quarter, driven by recent curriculum updates at partner institutions.';
+    thread.appendChild(botMsg);
+    input.value = '';
+  }
+
+  setStakeholder('student');
+</script>
+
+</body>
+</html>
