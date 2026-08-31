@@ -31,9 +31,9 @@
   }
   .display { font-family: 'Fraunces', serif; }
   .mono { font-family: 'IBM Plex Mono', monospace; }
- 
+
   .shell { display: flex; min-height: 100vh; }
- 
+
   /* Sidebar */
   .sidebar {
     width: 260px;
@@ -91,7 +91,7 @@
   }
   .node-btn.active .node-dot { background: var(--teal); border-color: var(--teal); color: #fff; }
   .node-btn.active { color: #EDEFEC; font-weight: 500; }
- 
+
   .module-list { display: flex; flex-direction: column; gap: 2px; margin-top: 0.5rem; }
   .module-item {
     background: none; border: none; color: rgba(237,239,236,0.7);
@@ -100,14 +100,14 @@
   }
   .module-item:hover { background: rgba(237,239,236,0.06); }
   .module-item.active { background: rgba(255,255,255,0.1); color: #fff; font-weight: 500; }
- 
+
   .sidebar-footer { margin-top: auto; font-size: 11.5px; color: rgba(237,239,236,0.45); line-height: 1.5; }
- 
+
   /* Main */
   .main { flex: 1; padding: 2.25rem 2.75rem; max-width: 980px; }
   .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 6px; }
   h1.page-title { font-size: 28px; font-weight: 600; margin: 0 0 1.75rem; letter-spacing: -0.01em; }
- 
+
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
   .card {
     background: var(--panel);
@@ -116,12 +116,12 @@
     padding: 1.25rem 1.4rem;
   }
   .card h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 0 0 0.9rem; font-weight: 500; }
- 
+
   /* Confidence ring */
   .ring-wrap { display: flex; align-items: center; gap: 1.1rem; }
   .ring-num { font-size: 34px; font-weight: 600; }
   .ring-sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
- 
+
   /* Gap bars */
   .gap-row { margin-bottom: 12px; }
   .gap-row:last-child { margin-bottom: 0; }
@@ -129,14 +129,14 @@
   .gap-label span:last-child { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; }
   .gap-track { height: 7px; background: var(--teal-light); border-radius: 4px; overflow: hidden; }
   .gap-fill { height: 100%; border-radius: 4px; }
- 
+
   .steps { display: flex; flex-direction: column; gap: 10px; }
   .step { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; }
   .step-num {
     width: 22px; height: 22px; border-radius: 50%; background: var(--teal-light); color: var(--teal);
     font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
- 
+
   select, button.primary {
     font-family: 'Inter', sans-serif; font-size: 13.5px; padding: 9px 14px;
     border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink);
@@ -145,30 +145,30 @@
   button.primary:hover { background: #275c51; }
   .sim-row { display: flex; gap: 10px; margin-bottom: 1.1rem; }
   .sim-row select { flex: 1; }
- 
+
   .stat-pair { display: flex; gap: 1rem; }
   .stat-box { flex: 1; background: var(--teal-light); border-radius: var(--radius); padding: 1rem; text-align: center; }
   .stat-box .num { font-size: 24px; font-weight: 600; }
   .stat-box .lbl { font-size: 12px; color: var(--muted); margin-top: 2px; }
- 
+
   .feed-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
   .feed-item:last-child { border-bottom: none; }
   .feed-tag { font-size: 10.5px; padding: 2px 7px; border-radius: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; flex-shrink: 0; height: fit-content; }
   .tag-industry { background: var(--amber-light); color: var(--amber); }
   .tag-college { background: var(--teal-light); color: var(--teal); }
- 
+
   .chat-box { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); padding: 1rem; }
   .chat-msg { font-size: 13.5px; margin-bottom: 10px; line-height: 1.5; }
   .chat-msg.bot { color: var(--ink); }
   .chat-msg.user { color: var(--muted); text-align: right; }
   .chat-input-row { display: flex; gap: 8px; margin-top: 8px; }
   .chat-input-row input { flex: 1; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--line); font-family: 'Inter', sans-serif; font-size: 13.5px; }
- 
+
   .view { display: none; }
   .view.active { display: block; }
   .module-panel { display: none; }
   .module-panel.active { display: block; }
- 
+
   /* Roadmap */
   .roadmap { position: relative; padding-left: 28px; }
   .roadmap::before { content: ""; position: absolute; left: 10px; top: 6px; bottom: 6px; width: 1px; background: var(--line); }
@@ -181,18 +181,18 @@
   .pill { display: inline-block; font-size: 10.5px; padding: 2px 8px; border-radius: 20px; font-weight: 600; margin-left: 8px; }
   .pill-done { background: var(--teal-light); color: var(--teal); }
   .pill-progress { background: var(--amber-light); color: var(--amber); }
- 
+
   /* Assessment list */
   .assess-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); }
   .assess-row:last-child { border-bottom: none; }
   .assess-name { font-size: 13.5px; font-weight: 500; }
   .assess-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
   .assess-score { font-size: 16px; font-weight: 600; }
- 
+
   a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
     outline: 2px solid var(--amber); outline-offset: 2px;
   }
- 
+
   /* Resume / ATS analyzer */
   .textarea-input {
     width: 100%; min-height: 170px; font-family: 'Inter', sans-serif; font-size: 12.5px; line-height: 1.5;
@@ -204,7 +204,7 @@
   .issue-critical .issue-dot { background: var(--coral); }
   .issue-warning .issue-dot { background: var(--amber); }
   .issue-good .issue-dot { background: var(--teal); }
- 
+
   .template-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   .template-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 0.9rem; background: var(--panel); }
   .template-thumb { background: #F7F9F7; border: 1px solid var(--line); border-radius: 6px; padding: 10px; height: 130px; display: flex; flex-direction: column; gap: 5px; margin-bottom: 0.75rem; }
@@ -218,9 +218,9 @@
   .btn-small { font-size: 12px; padding: 6px 10px; width: 100%; margin-top: 8px; }
   .btn-outline { background: var(--panel); color: var(--teal); border: 1px solid var(--teal); cursor: pointer; font-weight: 500; font-family: 'Inter', sans-serif; }
   .btn-outline:hover { background: var(--teal-light); }
- 
+
   @media (max-width: 900px) { .template-grid { grid-template-columns: 1fr; } }
- 
+
   /* Data-entry forms */
   .form-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
   .form-row input[type="text"], .form-row input[type="number"] {
@@ -231,7 +231,7 @@
   .form-row input[type="number"] { width: 90px; }
   .field-label { font-size: 11px; color: var(--muted); display: block; margin-bottom: 3px; }
   .field-group { display: flex; flex-direction: column; }
- 
+
   .chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
   .chip {
     display: flex; align-items: center; gap: 6px; background: var(--teal-light); color: var(--teal);
@@ -239,17 +239,43 @@
   }
   .chip-x { background: none; border: none; color: var(--teal); cursor: pointer; font-size: 14px; line-height: 1; padding: 0 2px; }
   .chip-x:hover { color: var(--coral); }
- 
+
   .cert-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 13px; }
   .cert-row:last-child { border-bottom: none; }
   .cert-meta { font-size: 11.5px; color: var(--muted); }
- 
+
   .divider-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.1rem 0 6px; font-weight: 600; }
   .empty-note { font-size: 12.5px; color: var(--muted); font-style: italic; }
- 
+
   .sync-note { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--teal); margin-top: 8px; }
   .sync-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
- 
+
+  /* Candidate search */
+  .candidate-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; margin-bottom: 10px; }
+  .candidate-card:last-child { margin-bottom: 0; }
+  .candidate-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .candidate-name { font-size: 14.5px; font-weight: 600; margin: 0; }
+  .candidate-role { font-size: 12px; color: var(--muted); margin: 2px 0 0; }
+  .candidate-score { font-size: 20px; font-weight: 600; font-family: 'IBM Plex Mono', monospace; }
+  .candidate-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .skill-tag { font-size: 11px; background: var(--teal-light); color: var(--teal); padding: 3px 9px; border-radius: 20px; }
+  .skill-tag.weak { background: var(--coral-light); color: var(--coral); }
+
+  /* Dependency graph */
+  .dep-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 0; }
+  .dep-node {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+    padding: 10px 14px; font-size: 13px; font-weight: 500; text-align: center; min-width: 140px;
+  }
+  .dep-node.have { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
+  .dep-node.gap { border-color: var(--coral); color: var(--coral); background: var(--coral-light); }
+  .dep-arrow { padding: 0 10px; color: var(--muted); font-size: 16px; }
+  .dep-row { display: flex; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 6px; }
+  .dep-label { font-size: 11px; color: var(--muted); width: 100%; margin-bottom: 4px; }
+
+  .result-box { background: var(--teal-light); border-radius: var(--radius); padding: 1rem; margin-top: 12px; font-size: 13px; }
+  .result-box.warn { background: var(--amber-light); }
+
   @media (max-width: 760px) {
     .shell { flex-direction: column; }
     .sidebar { width: 100%; }
@@ -259,11 +285,11 @@
 </style>
 </head>
 <body>
- 
+
 <div class="shell">
   <aside class="sidebar">
     <p class="brand display">SkillBridge<span style="color:var(--amber)">.</span></p>
- 
+
     <div class="bridge-track">
       <button class="node-btn active" id="node-student" onclick="setStakeholder('student')">
         <span class="node-dot">S</span> Student
@@ -275,17 +301,17 @@
         <span class="node-dot">I</span> Industry
       </button>
     </div>
- 
+
     <div class="module-list" id="module-list"></div>
- 
+
     <p class="sidebar-footer">Prototype demo — data you enter is stored in this browser tab only and resets on refresh.</p>
   </aside>
- 
+
   <main class="main">
- 
+
     <!-- STUDENT -->
     <div class="view" id="view-student">
- 
+
       <div class="module-panel active" id="panel-student-know">
         <p class="eyebrow">Student · Priya Sharma</p>
         <h1 class="page-title display">Know your skills</h1>
@@ -321,7 +347,7 @@
             <button class="primary btn-small" style="width:auto;margin-top:0;" onclick="addSkill()">Add skill</button>
           </div>
         </div>
- 
+
         <div class="card">
           <h3>Certifications</h3>
           <div id="cert-list"><p class="empty-note">No certifications added yet.</p></div>
@@ -333,7 +359,7 @@
           </div>
         </div>
       </div>
- 
+
       <div class="module-panel" id="panel-student-learn">
         <p class="eyebrow">Student · Priya Sharma</p>
         <h1 class="page-title display">Learn what to learn</h1>
@@ -341,6 +367,24 @@
           <h3>Shortest path to Backend Developer</h3>
           <div class="roadmap" id="roadmap-list"></div>
         </div>
+
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h3>What-if: prioritize a skill</h3>
+          <p style="font-size:12.5px;color:var(--muted);margin:0 0 10px;">See how much closer you'd get to role-ready by focusing on one skill next.</p>
+          <div class="sim-row">
+            <select id="whatif-skill-select"></select>
+            <button class="primary" onclick="runCareerWhatIf()">Simulate focus</button>
+          </div>
+          <div id="whatif-result"></div>
+        </div>
+
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h3>AI project generator</h3>
+          <p style="font-size:12.5px;color:var(--muted);margin:0 0 10px;">Generates a project idea targeting your single biggest skill gap.</p>
+          <button class="primary btn-small" style="width:auto;" onclick="generateProject()">Generate a project idea</button>
+          <div id="generated-project" style="margin-top:12px;"></div>
+        </div>
+
         <div class="card">
           <h3>Add a learning goal</h3>
           <div class="form-row">
@@ -350,7 +394,17 @@
           </div>
         </div>
       </div>
- 
+
+      <div class="module-panel" id="panel-student-graph">
+        <p class="eyebrow">Student · Priya Sharma</p>
+        <h1 class="page-title display">Skill dependency graph</h1>
+        <div class="card">
+          <h3>What unlocks what, for Backend Developer</h3>
+          <p style="font-size:12.5px;color:var(--muted);margin:0 0 14px;">Some skills are prerequisites for others. This shows the order that gets you role-ready fastest.</p>
+          <div id="dependency-graph"></div>
+        </div>
+      </div>
+
       <div class="module-panel" id="panel-student-assess">
         <p class="eyebrow">Student · Priya Sharma</p>
         <h1 class="page-title display">Test &amp; assessment</h1>
@@ -370,11 +424,11 @@
           <button class="primary" onclick="startRecommendedAssessment()">Start assessment</button>
         </div>
       </div>
- 
+
       <div class="module-panel" id="panel-student-resume">
         <p class="eyebrow">Student · Priya Sharma</p>
         <h1 class="page-title display">Resume &amp; ATS score</h1>
- 
+
         <div class="grid-2">
           <div class="card">
             <h3>Paste your resume text</h3>
@@ -397,17 +451,17 @@
             <div id="ats-categories" style="margin-top:14px;"></div>
           </div>
         </div>
- 
+
         <div class="card" style="margin-bottom:1.5rem;">
           <h3>Feedback</h3>
           <div id="ats-issues"><p style="font-size:13px;color:var(--muted);">Paste a resume and click "Analyze resume" to see feedback here.</p></div>
         </div>
- 
+
         <div class="card">
           <h3>New to resumes? Start from a template</h3>
           <p style="font-size:12.5px;color:var(--muted);margin:0 0 14px;">Pick a starting point — it loads sample content into the box above so you can see how it scores, then edit it into your own.</p>
           <div class="template-grid">
- 
+
             <div class="template-card">
               <div class="template-thumb">
                 <div class="thumb-line title"></div>
@@ -423,7 +477,7 @@
               <span class="pill pill-done">High ATS compatibility</span>
               <button class="btn-outline btn-small" onclick="setTemplate('classic')">Use this template</button>
             </div>
- 
+
             <div class="template-card">
               <div class="template-thumb">
                 <div class="thumb-cols">
@@ -445,7 +499,7 @@
               <span class="pill pill-progress">Use with caution</span>
               <button class="btn-outline btn-small" onclick="setTemplate('modern')">Use this template</button>
             </div>
- 
+
             <div class="template-card">
               <div class="template-thumb">
                 <div class="thumb-line title"></div>
@@ -459,21 +513,21 @@
               <span class="pill pill-done">High ATS compatibility</span>
               <button class="btn-outline btn-small" onclick="setTemplate('minimal')">Use this template</button>
             </div>
- 
+
           </div>
           <p style="font-size:11.5px;color:var(--muted);margin:14px 0 0;">Note: multi-column layouts can look great to a human reader but some ATS parsers read columns out of order — that's why the two-column template is flagged "use with caution" even though the content itself may be strong.</p>
         </div>
       </div>
- 
+
     </div>
- 
+
     <!-- COLLEGE -->
     <div class="view" id="view-college">
- 
+
       <div class="module-panel active" id="panel-college-curriculum">
         <p class="eyebrow">College · B.Tech CSE, Semester 5</p>
         <h1 class="page-title display">Curriculum what-if simulator</h1>
- 
+
         <div class="card" style="margin-bottom:1.5rem;">
           <h3>Currently taught courses</h3>
           <div class="chip-list" id="course-chips"></div>
@@ -483,7 +537,7 @@
             <button class="primary btn-small" style="width:auto;margin-top:0;" onclick="addCourse()">Add course</button>
           </div>
         </div>
- 
+
         <div class="card" style="margin-bottom:1.5rem;">
           <h3>Test a curriculum change</h3>
           <div class="sim-row">
@@ -499,19 +553,44 @@
           </div>
           <p style="font-size:12px;color:var(--muted);margin:12px 0 0;">Estimate based on current industry demand signals and student skill baselines for this program.</p>
         </div>
- 
-        <div class="card">
+
+        <div class="card" style="margin-bottom:1.5rem;">
           <h3>Curriculum gaps flagged by industry demand</h3>
           <div id="curriculum-gap-rows"></div>
         </div>
+
+        <div class="card">
+          <h3>Training ROI calculator</h3>
+          <p style="font-size:12.5px;color:var(--muted);margin:0 0 10px;">Estimate the return on a training investment based on projected employability gain.</p>
+          <div class="form-row" style="margin-top:0;">
+            <div class="field-group"><span class="field-label">Cost per student (₹)</span><input type="number" id="roi-cost-input" min="0" value="1500"></div>
+            <div class="field-group"><span class="field-label">Program size</span><input type="number" id="roi-students-input" min="1" value="240"></div>
+            <div class="field-group"><span class="field-label">Employability gain %</span><input type="number" id="roi-gain-input" min="0" value="6.2" step="0.1"></div>
+            <button class="primary btn-small" style="width:auto;margin-top:0;" onclick="calculateROI()">Calculate ROI</button>
+          </div>
+          <div class="stat-pair" style="margin-top:14px;">
+            <div class="stat-box"><p class="num mono" id="roi-total-cost" style="color:var(--teal)">--</p><p class="lbl">Total program cost</p></div>
+            <div class="stat-box"><p class="num mono" id="roi-per-point" style="color:var(--teal)">--</p><p class="lbl">Cost per employability point gained</p></div>
+          </div>
+        </div>
       </div>
- 
+
       <div class="module-panel" id="panel-college-demand">
         <p class="eyebrow">College · Curriculum planning</p>
         <h1 class="page-title display">Industry demand, for planning</h1>
         <div class="card" style="margin-bottom:1.5rem;">
           <h3>Predicted skill demand — next 1–3 years</h3>
           <div id="demand-rows-college"></div>
+        </div>
+
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h3>Future skill predictor</h3>
+          <p style="font-size:12.5px;color:var(--muted);margin:0 0 10px;">Simple trend projection from current growth rate — not a trained forecasting model.</p>
+          <div class="sim-row">
+            <select id="predict-skill-select"></select>
+            <button class="primary" onclick="predictFuture()">Project 1–3 years</button>
+          </div>
+          <div id="predict-result"></div>
         </div>
         <div class="card">
           <h3>Emerging roles to prepare for</h3>
@@ -524,12 +603,12 @@
           </div>
         </div>
       </div>
- 
+
     </div>
- 
+
     <!-- INDUSTRY -->
     <div class="view" id="view-industry">
- 
+
       <div class="module-panel active" id="panel-industry-talent">
         <p class="eyebrow">Industry · Talent &amp; demand overview</p>
         <h1 class="page-title display">Available talent, real time</h1>
@@ -552,7 +631,24 @@
           </div>
         </div>
       </div>
- 
+
+      <div class="module-panel" id="panel-industry-search">
+        <p class="eyebrow">Industry · Candidate pipeline</p>
+        <h1 class="page-title display">Verified talent search</h1>
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h3>Search verified candidates</h3>
+          <div class="form-row" style="margin-top:0;">
+            <input type="text" id="talent-search-input" placeholder="Search by skill, e.g. Docker">
+            <div class="field-group"><span class="field-label">Min. confidence score</span><input type="number" id="talent-min-score" min="0" max="100" value="0"></div>
+            <button class="primary btn-small" style="width:auto;margin-top:0;" onclick="searchTalent()">Search</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Results</h3>
+          <div id="talent-results"></div>
+        </div>
+      </div>
+
       <div class="module-panel" id="panel-industry-connect">
         <p class="eyebrow">Industry · Feedback loop</p>
         <h1 class="page-title display">Connections</h1>
@@ -570,7 +666,7 @@
           </div>
         </div>
       </div>
- 
+
       <div class="module-panel" id="panel-industry-assist">
         <p class="eyebrow">Industry · Career &amp; talent guidance</p>
         <h1 class="page-title display">Smart assistance</h1>
@@ -586,18 +682,19 @@
           </div>
         </div>
       </div>
- 
+
     </div>
- 
+
   </main>
 </div>
- 
+
 <script>
   const modules = {
     student: [
       { id: "know", label: "1. Know your skills" },
       { id: "resume", label: "Resume & ATS score" },
       { id: "learn", label: "2. Learn what to learn" },
+      { id: "graph", label: "Skill dependency graph" },
       { id: "assess", label: "5. Test & assessment" },
     ],
     college: [
@@ -606,11 +703,12 @@
     ],
     industry: [
       { id: "talent", label: "7. Dashboard & analytics" },
+      { id: "search", label: "Verified talent search" },
       { id: "connect", label: "6. Connections" },
       { id: "assist", label: "8. Smart assistance" },
     ],
   };
- 
+
   function setStakeholder(view) {
     ['student', 'college', 'industry'].forEach(v => {
       document.getElementById('view-' + v).classList.toggle('active', v === view);
@@ -619,7 +717,7 @@
     renderModuleList(view);
     showModulePanel(view, modules[view][0].id);
   }
- 
+
   function renderModuleList(view) {
     const list = document.getElementById('module-list');
     list.innerHTML = '';
@@ -635,13 +733,13 @@
       list.appendChild(btn);
     });
   }
- 
+
   function showModulePanel(view, moduleId) {
     document.querySelectorAll('#view-' + view + ' .module-panel').forEach(el => {
       el.classList.toggle('active', el.id === 'panel-' + view + '-' + moduleId);
     });
   }
- 
+
   /* ================= SHARED STATE ================= */
   const state = {
     skills: [
@@ -679,12 +777,12 @@
     ],
     talentCount: 1240,
   };
- 
+
   function addFeed(tag, text) {
     state.feed.unshift({ tag, text });
     renderFeed();
   }
- 
+
   /* ---------- Student: Know Your Skills ---------- */
   function renderSkills() {
     const gapRows = document.getElementById('gap-rows');
@@ -698,7 +796,7 @@
         '<div class="gap-track"><div class="gap-fill" style="width:' + Math.min(s.have, 100) + '%;background:' + color + '"></div></div>';
       gapRows.appendChild(row);
     });
- 
+
     const avg = state.skills.length
       ? Math.round(state.skills.reduce((sum, s) => sum + Math.min(100, (s.have / s.need) * 100), 0) / state.skills.length)
       : 0;
@@ -709,11 +807,14 @@
     document.getElementById('confidence-ring').setAttribute('stroke', overall >= 75 ? '#2F6F62' : overall >= 50 ? '#C7861A' : '#E2643C');
     document.getElementById('confidence-num').innerHTML = overall + '<span style="font-size:16px;color:var(--muted)">/100</span>';
     document.getElementById('confidence-sub').textContent = 'Verified via ' + state.certifications.length + ' certification' + (state.certifications.length === 1 ? '' : 's') + ', ' + state.assessments.length + ' assessment' + (state.assessments.length === 1 ? '' : 's');
- 
+
     const verifiedCount = state.skills.filter(s => s.have >= s.need).length;
     document.getElementById('target-role-sub').textContent = verifiedCount + ' of ' + state.skills.length + ' required skills fully verified';
+
+    populateWhatIfSelect();
+    renderDependencyGraph();
   }
- 
+
   function addSkill() {
     const name = document.getElementById('skill-name-input').value.trim();
     const have = parseInt(document.getElementById('skill-have-input').value, 10) || 0;
@@ -723,7 +824,7 @@
     document.getElementById('skill-name-input').value = '';
     renderSkills();
   }
- 
+
   function renderCertifications() {
     const box = document.getElementById('cert-list');
     if (state.certifications.length === 0) {
@@ -738,7 +839,7 @@
       box.appendChild(row);
     });
   }
- 
+
   function addCertification() {
     const name = document.getElementById('cert-name-input').value.trim();
     const issuer = document.getElementById('cert-issuer-input').value.trim() || 'Self-reported';
@@ -749,7 +850,7 @@
     renderCertifications();
     renderSkills();
   }
- 
+
   /* ---------- Student: Learn What to Learn ---------- */
   function renderRoadmap() {
     const box = document.getElementById('roadmap-list');
@@ -764,14 +865,14 @@
       box.appendChild(item);
     });
   }
- 
+
   function completeRoadmapStep(index) {
     state.roadmap[index].status = 'done';
     const next = state.roadmap.find(s => s.status === 'locked');
     if (next) next.status = 'progress';
     renderRoadmap();
   }
- 
+
   function addRoadmapGoal() {
     const title = document.getElementById('goal-title-input').value.trim();
     const sub = document.getElementById('goal-sub-input').value.trim() || 'Added by you';
@@ -782,7 +883,7 @@
     document.getElementById('goal-sub-input').value = '';
     renderRoadmap();
   }
- 
+
   /* ---------- Student: Test & Assessment ---------- */
   function renderAssessments() {
     const box = document.getElementById('assessment-list');
@@ -796,7 +897,7 @@
       box.appendChild(row);
     });
   }
- 
+
   function logAssessment() {
     const name = document.getElementById('assess-name-input').value.trim();
     const score = parseInt(document.getElementById('assess-score-input').value, 10);
@@ -806,12 +907,12 @@
     renderAssessments();
     renderSkills();
   }
- 
+
   function startRecommendedAssessment() {
     state.assessments.push({ name: "Practical system-design assessment", meta: "In progress · started just now", score: 0 });
     renderAssessments();
   }
- 
+
   /* ---------- College: Curriculum ---------- */
   function renderCourseChips() {
     const box = document.getElementById('course-chips');
@@ -823,7 +924,7 @@
       box.appendChild(chip);
     });
   }
- 
+
   function isCovered(demandName) {
     const genericWords = ['data', 'systems', 'system', 'science', 'basics', 'development', 'engineering', 'technology', 'fundamentals', 'applied', 'computing', 'design'];
     const words = s => s.toLowerCase().split(/[^a-z0-9]+/).filter(w => w.length > 2 && !genericWords.includes(w));
@@ -833,7 +934,7 @@
       return demandWords.some(dw => courseWords.includes(dw));
     });
   }
- 
+
   function renderCurriculumGaps() {
     const box = document.getElementById('curriculum-gap-rows');
     box.innerHTML = '';
@@ -846,7 +947,7 @@
       box.appendChild(row);
     });
   }
- 
+
   function renderCourseActionOptions() {
     const select = document.getElementById('course-action');
     select.innerHTML = '';
@@ -868,13 +969,13 @@
       select.appendChild(opt);
     }
   }
- 
+
   function refreshCurriculumViews() {
     renderCourseChips();
     renderCurriculumGaps();
     renderCourseActionOptions();
   }
- 
+
   function addCourse() {
     const name = document.getElementById('new-course-input').value.trim();
     if (!name) return;
@@ -883,14 +984,14 @@
     refreshCurriculumViews();
     addFeed('college', 'Added "' + name + '" to the curriculum');
   }
- 
+
   function removeCourse(index) {
     const name = state.taughtCourses[index];
     state.taughtCourses.splice(index, 1);
     refreshCurriculumViews();
     addFeed('college', 'Removed "' + name + '" from the curriculum');
   }
- 
+
   function simulate() {
     const select = document.getElementById('course-action');
     const value = select.value;
@@ -912,7 +1013,7 @@
     }
     document.getElementById('sim-students').textContent = programSize;
   }
- 
+
   /* ---------- College: Industry Demand ---------- */
   function renderEmergingRoles() {
     const box = document.getElementById('emerging-roles-list');
@@ -924,7 +1025,7 @@
       box.appendChild(row);
     });
   }
- 
+
   function addEmergingRole() {
     const name = document.getElementById('role-name-input').value.trim();
     const meta = document.getElementById('role-meta-input').value.trim() || 'Logged by you';
@@ -934,7 +1035,7 @@
     document.getElementById('role-meta-input').value = '';
     renderEmergingRoles();
   }
- 
+
   /* ---------- Shared: Demand (Industry + College) ---------- */
   function renderDemand(elementId) {
     const container = document.getElementById(elementId);
@@ -948,14 +1049,15 @@
       container.appendChild(row);
     });
   }
- 
+
   function refreshAllDemandViews() {
     renderDemand('demand-rows');
     renderDemand('demand-rows-college');
     renderCurriculumGaps();
     renderCourseActionOptions();
+    populatePredictSelect();
   }
- 
+
   function publishDemandSignal() {
     const name = document.getElementById('demand-name-input').value.trim();
     const pct = parseInt(document.getElementById('demand-pct-input').value, 10);
@@ -965,13 +1067,13 @@
     refreshAllDemandViews();
     addFeed('industry', 'Flagged "' + name + '" as a growing skill need (' + pct + '% growth)');
   }
- 
+
   function logConfirmedHire() {
     state.talentCount += 1;
     document.getElementById('talent-count').textContent = state.talentCount.toLocaleString();
     addFeed('industry', 'Confirmed a new hire from the verified talent pipeline');
   }
- 
+
   /* ---------- Industry: Connections ---------- */
   function renderFeed() {
     const box = document.getElementById('feed-list');
@@ -983,7 +1085,7 @@
       box.appendChild(row);
     });
   }
- 
+
   function postFeedUpdate() {
     const tag = document.getElementById('feed-tag-input').value;
     const text = document.getElementById('feed-text-input').value.trim();
@@ -991,24 +1093,193 @@
     addFeed(tag, text);
     document.getElementById('feed-text-input').value = '';
   }
- 
+
   function sendChat() {
     const input = document.getElementById('chat-input');
     const text = input.value.trim();
     if (!text) return;
+    const lower = text.toLowerCase();
     const thread = document.getElementById('chat-thread');
     const userMsg = document.createElement('div');
     userMsg.className = 'chat-msg user';
     userMsg.textContent = text;
     thread.appendChild(userMsg);
- 
+
+    let reply;
+    const matchedDemand = state.demand.find(d => lower.includes(d.name.toLowerCase()));
+    if (matchedDemand) {
+      reply = '"' + matchedDemand.name + '" is currently showing ' + matchedDemand.pct + '% projected growth in demand over the next 1-3 years, based on published demand signals.';
+    } else if (lower.includes('talent') || lower.includes('candidate') || lower.includes('pipeline')) {
+      reply = 'There are currently ' + state.talentCount.toLocaleString() + ' verified candidates in the pipeline. Try the "Verified talent search" tab to filter by specific skills.';
+    } else if (lower.includes('hire') || lower.includes('hiring')) {
+      const hireCount = state.feed.filter(f => f.text.toLowerCase().includes('hire')).length;
+      reply = 'The connections feed shows ' + hireCount + ' hire-related update' + (hireCount === 1 ? '' : 's') + ' logged so far. Check the Connections tab for the full activity log.';
+    } else if (lower.includes('top') && lower.includes('skill')) {
+      const top = [...state.demand].sort((a, b) => b.pct - a.pct)[0];
+      reply = top ? 'The highest-growth skill right now is "' + top.name + '" at ' + top.pct + '% projected growth.' : 'No demand data published yet.';
+    } else if (lower.includes('course') || lower.includes('curriculum')) {
+      reply = 'Currently taught: ' + state.taughtCourses.join(', ') + '. Check the College view to add or remove courses and see the projected impact.';
+    } else {
+      const top = [...state.demand].sort((a, b) => b.pct - a.pct)[0];
+      reply = 'I can answer questions about talent pipeline size, hiring activity, or specific skills like "' + (top ? top.name : 'Cloud & DevOps') + '". Try asking about one of those.';
+    }
+
     const botMsg = document.createElement('div');
     botMsg.className = 'chat-msg bot';
-    botMsg.textContent = 'Based on current data: Bengaluru and Pune show the highest concentration of cloud-verified graduates this quarter, driven by recent curriculum updates at partner institutions.';
+    botMsg.textContent = reply;
     thread.appendChild(botMsg);
     input.value = '';
   }
- 
+
+  /* ---------- Career path what-if + AI project generator ---------- */
+  function computeConfidence(skills, certCount) {
+    if (!skills.length) return 0;
+    const avg = Math.round(skills.reduce((sum, s) => sum + Math.min(100, (s.have / s.need) * 100), 0) / skills.length);
+    return Math.min(100, avg + Math.min(10, certCount * 2));
+  }
+
+  function populateWhatIfSelect() {
+    const select = document.getElementById('whatif-skill-select');
+    if (!select) return;
+    select.innerHTML = '';
+    state.skills.filter(s => s.have < s.need).forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s.name;
+      opt.textContent = s.name;
+      select.appendChild(opt);
+    });
+    if (select.options.length === 0) {
+      const opt = document.createElement('option');
+      opt.textContent = 'All skills already at target';
+      select.appendChild(opt);
+    }
+  }
+
+  function runCareerWhatIf() {
+    const name = document.getElementById('whatif-skill-select').value;
+    const skill = state.skills.find(s => s.name === name);
+    const box = document.getElementById('whatif-result');
+    if (!skill) {
+      box.innerHTML = '<div class="result-box warn">No skill selected — you may already be at target level on everything tracked.</div>';
+      return;
+    }
+    const before = computeConfidence(state.skills, state.certifications.length);
+    const hypothetical = state.skills.map(s => s.name === name ? { ...s, have: s.need } : s);
+    const after = computeConfidence(hypothetical, state.certifications.length);
+    const weeksEstimate = Math.max(1, Math.round((skill.need - skill.have) / 8));
+    box.innerHTML = '<div class="result-box">Closing the <strong>' + name + '</strong> gap fully would raise your confidence score from <strong>' + before + '</strong> to <strong>' + after + '</strong> (+' + (after - before) + '), roughly <strong>' + weeksEstimate + ' week' + (weeksEstimate === 1 ? '' : 's') + '</strong> of focused work at a typical learning pace.</div>';
+  }
+
+  const projectIdeas = [
+    { match: 'database', title: 'Schema-versioned migration CLI tool', difficulty: 'Medium', time: '1-2 weeks' },
+    { match: 'system design', title: 'Design and document a URL-shortener at scale (with trade-off write-up)', difficulty: 'Medium-Hard', time: '2 weeks' },
+    { match: 'container', title: 'Containerize a multi-service app with Docker Compose', difficulty: 'Easy-Medium', time: '3-5 days' },
+    { match: 'rest api', title: 'Build a rate-limited REST API with auth and pagination', difficulty: 'Medium', time: '1 week' },
+    { match: 'cloud', title: 'Deploy a service to a cloud provider with CI/CD from GitHub Actions', difficulty: 'Medium', time: '1 week' },
+  ];
+
+  function generateProject() {
+    const box = document.getElementById('generated-project');
+    if (!state.skills.length) {
+      box.innerHTML = '<div class="result-box warn">Add some skills first so a gap can be identified.</div>';
+      return;
+    }
+    const weakest = [...state.skills].sort((a, b) => (b.need - b.have) - (a.need - a.have))[0];
+    const idea = projectIdeas.find(p => weakest.name.toLowerCase().includes(p.match))
+      || { title: 'A small project that specifically exercises "' + weakest.name + '"', difficulty: 'Medium', time: '1 week' };
+    box.innerHTML = '<div class="result-box"><strong>Targets: ' + weakest.name + '</strong> (currently ' + weakest.have + '/' + weakest.need + ')<br>' + idea.title + '<br><span style="color:var(--muted);font-size:12px;">Estimated difficulty: ' + idea.difficulty + ' · Time: ' + idea.time + '</span></div>';
+  }
+
+  /* ---------- Skill dependency graph ---------- */
+  const dependencyChain = ["REST API design", "Database migrations", "Containerization", "System design"];
+  function renderDependencyGraph() {
+    const box = document.getElementById('dependency-graph');
+    if (!box) return;
+    let html = '<div class="dep-row"><span class="dep-label">Recommended learning order for Backend Developer</span>';
+    dependencyChain.forEach((name, i) => {
+      const skill = state.skills.find(s => s.name === name);
+      const achieved = skill && skill.have >= skill.need;
+      html += '<div class="dep-node ' + (achieved ? 'have' : 'gap') + '">' + name + (skill ? ' (' + skill.have + '/' + skill.need + ')' : ' (not tracked)') + '</div>';
+      if (i < dependencyChain.length - 1) html += '<span class="dep-arrow">&#8594;</span>';
+    });
+    html += '</div>';
+    box.innerHTML = html;
+  }
+
+  /* ---------- Training ROI calculator ---------- */
+  function calculateROI() {
+    const cost = parseFloat(document.getElementById('roi-cost-input').value) || 0;
+    const students = parseInt(document.getElementById('roi-students-input').value, 10) || 1;
+    const gain = parseFloat(document.getElementById('roi-gain-input').value) || 0;
+    const totalCost = cost * students;
+    document.getElementById('roi-total-cost').textContent = '\u20B9' + totalCost.toLocaleString('en-IN');
+    document.getElementById('roi-per-point').textContent = gain > 0 ? '\u20B9' + Math.round(totalCost / gain).toLocaleString('en-IN') : '--';
+  }
+
+  /* ---------- Future skill predictor ---------- */
+  function populatePredictSelect() {
+    const select = document.getElementById('predict-skill-select');
+    if (!select) return;
+    select.innerHTML = '';
+    state.demand.forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d.name;
+      opt.textContent = d.name;
+      select.appendChild(opt);
+    });
+  }
+
+  function predictFuture() {
+    const name = document.getElementById('predict-skill-select').value;
+    const d = state.demand.find(x => x.name === name);
+    const box = document.getElementById('predict-result');
+    if (!d) { box.innerHTML = ''; return; }
+    const y1 = Math.min(100, Math.round(d.pct));
+    const y2 = Math.min(100, Math.round(d.pct * 1.15));
+    const y3 = Math.min(100, Math.round(d.pct * 1.3));
+    box.innerHTML = '<div class="result-box">Simple linear-growth projection for <strong>' + name + '</strong>:<br>' +
+      'Year 1: ' + y1 + '% &nbsp; Year 2: ' + y2 + '% &nbsp; Year 3: ' + y3 + '%<br>' +
+      '<span style="color:var(--muted);font-size:12px;">This extrapolates the current growth rate — a production version needs a real time-series model trained on historical postings.</span></div>';
+  }
+
+  /* ---------- Verified talent search ---------- */
+  const talentPool = [
+    { name: "Priya Sharma", role: "Backend Developer track", skills: null, scoreFn: () => computeConfidence(state.skills, state.certifications.length) },
+    { name: "Arjun Mehta", role: "Frontend Developer track", skills: ["React", "TypeScript", "CSS", "Testing"], score: 74 },
+    { name: "Sneha Reddy", role: "Data Engineer track", skills: ["SQL", "Data Engineering", "Cloud", "Python"], score: 81 },
+    { name: "Karan Verma", role: "DevOps track", skills: ["Docker", "CI/CD", "Cloud & DevOps", "Git"], score: 69 },
+  ];
+
+  function searchTalent() {
+    const query = document.getElementById('talent-search-input').value.trim().toLowerCase();
+    const minScore = parseInt(document.getElementById('talent-min-score').value, 10) || 0;
+    const box = document.getElementById('talent-results');
+    box.innerHTML = '';
+
+    const candidates = talentPool.map(c => {
+      const skills = c.skills || state.skills.map(s => s.name);
+      const score = c.score || c.scoreFn();
+      return { name: c.name, role: c.role, skills, score };
+    });
+
+    const filtered = candidates.filter(c =>
+      c.score >= minScore && (query === '' || c.skills.some(s => s.toLowerCase().includes(query)))
+    );
+
+    if (filtered.length === 0) {
+      box.innerHTML = '<p class="empty-note">No candidates match that search.</p>';
+      return;
+    }
+
+    filtered.forEach(c => {
+      const card = document.createElement('div');
+      card.className = 'candidate-card';
+      const tags = c.skills.map(s => '<span class="skill-tag' + (query && s.toLowerCase().includes(query) ? '' : '') + '">' + s + '</span>').join('');
+      card.innerHTML = '<div class="candidate-top"><div><p class="candidate-name">' + c.name + '</p><p class="candidate-role">' + c.role + '</p></div><span class="candidate-score" style="color:' + (c.score >= 75 ? 'var(--teal)' : c.score >= 50 ? 'var(--amber)' : 'var(--coral)') + '">' + c.score + '</span></div><div class="candidate-skills">' + tags + '</div>';
+      box.appendChild(card);
+    });
+  }
+
   function initAllData() {
     renderSkills();
     renderCertifications();
@@ -1018,73 +1289,77 @@
     renderEmergingRoles();
     refreshAllDemandViews();
     renderFeed();
+    populateWhatIfSelect();
+    renderDependencyGraph();
+    populatePredictSelect();
+    searchTalent();
   }
- 
+
   /* ---------- Resume & ATS analyzer ---------- */
   const roleKeywords = ['rest api', 'database', 'system design', 'docker', 'container', 'cloud', 'sql', 'git', 'testing', 'ci/cd'];
   const actionVerbs = ['led', 'built', 'designed', 'implemented', 'improved', 'increased', 'managed', 'created', 'developed', 'optimized', 'launched', 'reduced', 'automated'];
- 
+
   const resumeTemplates = {
     classic: `Priya Sharma
 priya.sharma@email.com | +91 98765 43210 | Bengaluru, India
- 
+
 SUMMARY
 Backend developer with 2 years of experience building REST APIs and scalable database systems.
- 
+
 SKILLS
 REST API design, SQL and NoSQL databases, Docker containerization, Cloud deployment (AWS), Git, CI/CD pipelines, System design fundamentals
- 
+
 EXPERIENCE
 Software Engineer Intern, TechCorp — Jun 2025 to Present
 - Built and deployed 3 REST API endpoints, reducing average response time by 30%
 - Implemented database migration scripts that cut deployment errors by 40%
 - Containerized the core service with Docker, improving environment consistency across the team of 5 engineers
- 
+
 EDUCATION
 B.Tech in Computer Science, XYZ University — Expected 2027`,
- 
+
     modern: `Priya Sharma
 Bengaluru
- 
+
 Backend developer intern focused on APIs and cloud systems.
- 
+
 SIDEBAR
 - Python, Java, SQL
 - Problem solving
 - Team collaboration
- 
+
 EXPERIENCE
 Software Engineer Intern, TechCorp
 Worked on backend services and helped the team ship features.
- 
+
 EDUCATION
 B.Tech Computer Science, XYZ University`,
- 
+
     minimal: `PRIYA SHARMA — Backend Developer
- 
+
 Built REST APIs serving 10,000+ daily requests; improved system uptime to 99.9% through containerized deployments and automated testing.
- 
+
 SKILLS: REST API, Docker, Cloud, System design, Git, CI/CD
- 
+
 Led migration of legacy database, reducing query latency by 45%. Increased test coverage from 40% to 85% across core services.`,
   };
- 
+
   function setTemplate(key) {
     document.getElementById('resume-input').value = resumeTemplates[key];
     analyzeResume();
   }
- 
+
   function analyzeResume() {
     const text = document.getElementById('resume-input').value;
     const lower = text.toLowerCase();
     const issuesBox = document.getElementById('ats-issues');
     issuesBox.innerHTML = '';
- 
+
     if (!text.trim()) {
       issuesBox.innerHTML = '<p style="font-size:13px;color:var(--muted);">Paste a resume and click "Analyze resume" to see feedback here.</p>';
       return;
     }
- 
+
     const hasEmail = /\S+@\S+\.\S+/.test(text);
     const hasPhone = /(\+?\d[\d\-\s]{8,}\d)/.test(text);
     const hasSkillsHeader = /\bskills\b/i.test(text);
@@ -1095,7 +1370,7 @@ Led migration of legacy database, reducing query latency by 45%. Increased test 
     const wordCount = text.trim().split(/\s+/).length;
     const matchedKeywords = roleKeywords.filter(k => lower.includes(k));
     const missingKeywords = roleKeywords.filter(k => !lower.includes(k));
- 
+
     const keywordScore = Math.round((matchedKeywords.length / roleKeywords.length) * 100);
     const structureScore = Math.round(([hasEmail || hasPhone, hasSkillsHeader, hasExperienceHeader, hasEducationHeader].filter(Boolean).length / 4) * 100);
     const impactScore = Math.min(100, quantifiedCount * 18 + actionVerbCount * 6);
@@ -1106,18 +1381,18 @@ Led migration of legacy database, reducing query latency by 45%. Increased test 
     else if (wordCount <= 800) lengthScore = 85;
     else lengthScore = 60;
     const formattingScore = /\t{2,}|\|{2,}/.test(text) ? 55 : 92;
- 
+
     const overall = Math.round(
       keywordScore * 0.3 + structureScore * 0.2 + impactScore * 0.2 + lengthScore * 0.15 + formattingScore * 0.15
     );
- 
+
     // Ring
     const circumference = 188.5;
     const offset = circumference * (1 - overall / 100);
     document.getElementById('ats-ring').setAttribute('stroke-dashoffset', offset.toFixed(1));
     document.getElementById('ats-ring').setAttribute('stroke', overall >= 75 ? '#2F6F62' : overall >= 50 ? '#C7861A' : '#E2643C');
     document.getElementById('ats-score-num').innerHTML = overall + '<span style="font-size:16px;color:var(--muted)">/100</span>';
- 
+
     // Category bars
     const cats = [
       { name: 'Keyword match', score: keywordScore },
@@ -1136,7 +1411,7 @@ Led migration of legacy database, reducing query latency by 45%. Increased test 
         '<div class="gap-track"><div class="gap-fill" style="width:' + c.score + '%;background:' + color + '"></div></div>';
       catBox.appendChild(row);
     });
- 
+
     // Issues
     const issues = [];
     if (!hasEmail) issues.push(['critical', 'No email address detected — add one so recruiters and ATS systems can find your contact info.']);
@@ -1150,11 +1425,11 @@ Led migration of legacy database, reducing query latency by 45%. Increased test 
     if (wordCount > 800) issues.push(['warning', 'Resume is quite long (' + wordCount + ' words) — consider trimming.']);
     if (missingKeywords.length > 0) issues.push(['critical', 'Missing keywords for Backend Developer: ' + missingKeywords.slice(0, 5).join(', ') + '.']);
     if (formattingScore < 80) issues.push(['critical', 'Detected table-like formatting (tabs/pipes) — this can confuse ATS parsers.']);
- 
+
     if (hasSkillsHeader && hasExperienceHeader && hasEducationHeader) issues.push(['good', 'All core resume sections are present.']);
     if (quantifiedCount >= 3) issues.push(['good', 'Good use of quantified, measurable achievements.']);
     if (matchedKeywords.length >= 6) issues.push(['good', 'Strong keyword match for the Backend Developer role.']);
- 
+
     issuesBox.innerHTML = '';
     issues.forEach(([severity, msg]) => {
       const el = document.createElement('div');
@@ -1163,11 +1438,11 @@ Led migration of legacy database, reducing query latency by 45%. Increased test 
       issuesBox.appendChild(el);
     });
   }
- 
+
   initAllData();
   setTemplate('classic');
   setStakeholder('student');
 </script>
- 
+
 </body>
 </html>
