@@ -1,0 +1,4 @@
+export function Card({children,className=''}){return <section className={`card p-5 ${className}`}>{children}</section>}
+export function Header({eyebrow,title,children}){return <header className="mb-7 flex items-end justify-between gap-4"><div><p className="text-xs uppercase tracking-widest muted mb-1">{eyebrow}</p><h1 className="display text-3xl font-semibold">{title}</h1></div>{children}</header>}
+export function Bar({value,need=100}){const p=Math.min(100,Math.max(0,value/need*100));return <div className="h-2 bg-tealLight rounded-full overflow-hidden"><div className="h-full rounded-full bg-teal" style={{width:`${p}%`}}/></div>}
+export function Stat({value,label}){return <div className="bg-tealLight rounded-xl p-4 text-center"><div className="mono text-2xl font-semibold text-teal">{value}</div><div className="text-xs muted mt-1">{label}</div></div>}
