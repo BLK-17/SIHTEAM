@@ -1,27 +1,55 @@
 services:
+
   postgres:
     image: postgres:17
-    environment: {POSTGRES_DB: skillbridge, POSTGRES_USER: skillbridge, POSTGRES_PASSWORD: skillbridge}
-    ports: ['5432:5432']
-    volumes: ['./infra/postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql']
+    environment:
+      POSTGRES_DB: skillbridge
+      POSTGRES_USER: skillbridge
+      POSTGRES_PASSWORD: skillbridge
+    ports:
+      - '5432:5432'
+    volumes:
+      - './infra/postgres/schema.sql:/docker-entrypoint-initdb.d/schema.sql'
+
   mongo:
     image: mongo:8
-    ports: ['27017:27017']
-    volumes: ['mongo_data:/data/db']
+    ports:
+      - '27017:27017'
+    volumes:
+      - 'mongo_data:/data/db'
+
   qdrant:
     image: qdrant/qdrant:v1.15.0
-    ports: ['6333:6333','6334:6334']
-    volumes: ['qdrant_data:/qdrant/storage']
+    ports:
+      - '6333:6333'
+      - '6334:6334'
+    volumes:
+      - 'qdrant_data:/qdrant/storage'
+
   api:
     build: ./apps/api
-    environment: {PORT: 4000}
-    ports: ['4000:4000']
-    depends_on: [postgres,mongo,qdrant]
+    environment:
+      PORT: 4000
+      JWT_SECRET: skillbridge-super-secret-key-2026
+    ports:
+      - '4000:4000'
+    depends_on:
+      - postgres
+      - mongo
+      - qdrant
+
   ai:
     build: ./services/ai
-    ports: ['8000:8000']
+    ports:
+      - '8000:8000'
+
   web:
     build: ./apps/web
-    ports: ['5173:80']
-    depends_on: [api]
-volumes: {mongo_data: {}, qdrant_data: {}}
+    ports:
+      - '5173:80'
+    depends_on:
+      - api
+
+volumes:
+  mongo_data:
+  qdrant_data:

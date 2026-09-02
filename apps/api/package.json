@@ -1,1 +1,22 @@
-{"name":"skillbridge-api","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"node --watch src/server.js","build":"node -e \"console.log('api build ok')\"","lint":"node -e \"console.log('lint placeholder')\""},"dependencies":{"cors":"^2.8.5","dotenv":"^16.4.7","express":"^5.1.0","helmet":"^8.1.0","morgan":"^1.10.0","pg":"^8.16.3","mongodb":"^6.19.0"}}
+{
+    "name": "skillbridge-api",
+    "version": "2.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "node --watch src/server.js",
+        "build": "node -e \"console.log('api build ok')\"",
+        "lint": "node -e \"console.log('lint placeholder')\""
+    },
+    "dependencies": {
+        "bcryptjs": "^3.0.2",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^5.1.0",
+        "helmet": "^8.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongodb": "^6.19.0",
+        "morgan": "^1.10.0",
+        "pg": "^8.23.0"
+    }
+}
